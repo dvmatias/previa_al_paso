@@ -6,6 +6,8 @@
 
     <color name="black_overlay">#66000000</color>
 
+    <color name="pap_transparent">#00000000</color>
+    <color name="pap_white">#FFFFFFFF</color>
     <color name="pap_red">#FFBE1E2D</color>
     <color name="pap_yellow">#FFFBB619</color>
     <color name="pap_purple">#FF7F3F98</color>

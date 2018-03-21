@@ -7,22 +7,51 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
+
+import adapters.AdapterSplashPager;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class SplashActivity extends AppCompatActivity {
+    /**
+     * TAG.
+     */
+    private static final String TAG = SplashActivity.class.getSimpleName();
+
+    /**
+     * Main view pager to show splash screens.
+     */
+    private ViewPager pager;
+
+    /**
+     * Main view pager adapter.
+     */
+    private AdapterSplashPager adapterPager;
 
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
      */
     private static final int UI_ANIMATION_DELAY = 300;
+
+    /**
+     * Handler.
+     */
     private final Handler mHideHandler = new Handler();
-    private ViewPager mContentView;
+
+    /**
+     * Content view.
+     */
+    private FrameLayout mContentView;
+
+    /**
+     * Task to hide.
+     */
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -41,6 +70,9 @@ public class SplashActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * TODO desc.
+     */
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
@@ -60,11 +92,26 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         mContentView = findViewById(R.id.fullscreen_content);
+        pager = findViewById(R.id.pager);
+
 
         // Hide UI first
         hide();
+
+        setupPager();
     }
 
+    /**
+     *
+     */
+    private void setupPager() {
+        adapterPager = new AdapterSplashPager(getSupportFragmentManager());
+        pager.setAdapter(adapterPager);
+    }
+
+    /**
+     * TODO desc.
+     */
     private void hide() {
         // Hide UI first
         ActionBar actionBar = getSupportActionBar();
@@ -76,4 +123,5 @@ public class SplashActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mShowPart2Runnable);
         mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
     }
+
 }
