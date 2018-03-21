@@ -45,16 +45,11 @@ public class AdapterSplashPager extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
-                return FragmentAgreement.newInstance();
-            case 1:
-                return FragmentLogIn.newInstance();
-            case 2:
-                return FragmentPayment.newInstance();
-            case 3:
-                return FragmentWelcome.newInstance();
-            default:
-                return null;
+            case 0: return FragmentAgreement.newInstance();
+            case 1: return FragmentLogIn.newInstance();
+            case 2: return FragmentPayment.newInstance();
+            case 3: return FragmentWelcome.newInstance();
+            default: return null;
         }
     }
 

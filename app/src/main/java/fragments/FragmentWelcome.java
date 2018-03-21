@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 
 /**
- * Created by cesar.delvecchio on 21/03/2018.
+ * Created by cesar.delvecchio on 21/03/2018
  */
 
 public class FragmentWelcome extends Fragment {
