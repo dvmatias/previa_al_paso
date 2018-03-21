@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="pap_red">#FFBE1E2D</color>
+    <color name="pap_yellow">#FFFBB619</color>
+    <color name="pap_purple">#FF7F3F98</color>
+    <color name="pap_alert">#FFFF3333</color>
+    <color name="pap_gray_dark">#FF121212</color>
 </resources>
