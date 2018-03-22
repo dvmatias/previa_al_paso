@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/pap_purple" >
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textColor="@color/pap_white"
+        android:lines="1"/>
+
+    <!-- Separator -->
+    <View
+        android:id="@+id/separator"
+        android:layout_width="100dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@color/pap_yellow" />
+
+    <!-- Explanation -->
+    <TextView
+        android:id="@+id/explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sato sit amet. Lorem ipsum dolor sato sit amet lorem ipsum dolo. Lorem ipsum dolor sato sit amet."
+        android:textColor="@color/pap_white"
+        android:textAlignment="center" />
+
+</LinearLayout>
