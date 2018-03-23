@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:splas_title_explanation="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pap_transparent"
-    tools:showIn="@layout/activity_splash" >
+    android:background="@color/pap_transparent" >
 
-    <utils.customviews.SplashTitleExplanation
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_splash"
+        android:layout_gravity="top|center_horizontal"
+        android:scaleType="centerInside"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        splas_title_explanation:titleText="Titulo Pasado"
-        splas_title_explanation:explanationText="Explicacion Pasada." />
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
+        <utils.customviews.SplashTitleExplanation
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            splas_title_explanation:titleText="@string/agreement_title"
+            splas_title_explanation:explanationText="@string/agreement_explanation" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/material_text_subhead2"
+                android:text="@string/agreement_agreement"
+                android:textColor="@color/pap_white"/>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

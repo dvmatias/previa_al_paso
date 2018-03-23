@@ -27,6 +27,11 @@ public class SplashTitleExplanation extends LinearLayout {
     private TextView title;
 
     /**
+     * View Separator.
+     */
+    private View separator;
+
+    /**
      * View Explanation.
      */
     private TextView explanation;
@@ -72,11 +77,6 @@ public class SplashTitleExplanation extends LinearLayout {
         if(!isInEditMode()) init(context, attrs, DEF_STYLE);
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
     /**
      * Constructor.
      *
@@ -90,16 +90,17 @@ public class SplashTitleExplanation extends LinearLayout {
     }
 
     /**
-     * TODO desc
+     * Init.
      *
-     * @param context
-     * @param attrs
-     * @param defStyle
+     * @param context       [Context] context.
+     * @param attrs         [AttributeSet] Attribute set.
+     * @param defStyleAttr  [int] Default style.
      */
-    private void init (Context context, AttributeSet attrs, int defStyle) {
+    private void init (Context context, AttributeSet attrs, int defStyleAttr) {
         View rootView = inflate(context, R.layout.customview_splash_title_explanation, this);
 
         title = rootView.findViewById(R.id.title);
+        separator = rootView.findViewById(R.id.separator);
         explanation = rootView.findViewById(R.id.explanation);
 
         setAttributes(context, attrs);

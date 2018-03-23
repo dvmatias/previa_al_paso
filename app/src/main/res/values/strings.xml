@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Previa Al Paso</string>
 
-    <string name="title_activity_agreement">AgreementActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_splash_activity">Splash Activity</string>
+
+    <!-- Fragment Agreement -->
+    <string name="agreement_actionbar_title">Acuerdo</string>
+    <string name="agreement_title">Soy mayor de 18 años</string>
+    <string name="agreement_explanation">Debes confirmar que\nsos mayor de edad para poder\nutilizar esta aplicación.</string>
+    <string name="agreement_agreement">Si, soy mayor de 18 años</string>
+    <string name="agreement_pos_button">ACEPTAR</string>
 </resources>
