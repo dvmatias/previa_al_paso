@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
 
         <utils.customviews.SplashTitleExplanation
             android:layout_width="wrap_content"
@@ -36,24 +37,23 @@
             android:layout_gravity="center_horizontal">
 
             <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_agreement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/CustomCheckBoxTheme" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/material_text_subhead2"
+                android:layout_marginTop="40dp"
                 android:text="@string/agreement_agreement"
-                android:textColor="@color/pap_white"/>
+                android:textSize="@dimen/material_text_subhead2"
+                android:textColor="@color/pap_white"
+                android:theme="@style/CustomCheckBoxTheme" />
         </LinearLayout>
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/agreement_pos_button"
         style="@style/CustomButtonTheme"/>
 </FrameLayout>

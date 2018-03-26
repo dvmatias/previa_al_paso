@@ -9,6 +9,8 @@
     <color name="pap_transparent">#00000000</color>
     <color name="pap_white">#FFFFFFFF</color>
     <color name="pap_button_disable">#99FFFFFF</color>
+    <color name="pap_button_pressed">#CCFBB619</color>
+    <color name="pap_button_normal">#FFFBB619</color>
     <color name="pap_action_bar_title">#99FFFFFF</color>
     <color name="pap_splash_title">#FFFFFFFF</color>
     <color name="pap_splash_explanation">#ccffffff</color>
