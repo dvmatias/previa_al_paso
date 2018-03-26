@@ -1,16 +1,23 @@
 package com.previaalpaso.matiasdelvecchio.previaalpaso.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 
+import java.lang.reflect.Field;
+
 import adapters.AdapterSplashPager;
 import utils.customviews.PagerIndicator;
+import utils.customviews.SplashViewPager;
 import utils.presenter.SplashPresenter;
 import utils.view.ISplashView;
 
@@ -33,7 +40,7 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
     /**
      * Main view pager to show splash screens.
      */
-    private ViewPager pager;
+    private SplashViewPager pager;
 
     /**
      * Main view pager adapter.
@@ -70,6 +77,9 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
      *
      */
     private void setupPager() {
+        // No swipe enabled.
+        pager.setSwipeEnabled(false);
+
         // Set pager adapter.
         adapterPager = new AdapterSplashPager(getSupportFragmentManager());
         pager.setAdapter(adapterPager);
@@ -95,7 +105,7 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
     }
 
     /**
-     *
+     * Set page indicator params.
      */
     private void setupPageIndicator() {
         pagerIndicator.setIndicatorCount(pager.getAdapter().getCount());
