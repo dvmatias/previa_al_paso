@@ -10,6 +10,7 @@ public class SplashPresenter {
     /**
      * TAG.
      */
+    @SuppressWarnings("unused")
     private static final String TAG = SplashPresenter.class.getSimpleName();
 
     /**
@@ -24,5 +25,22 @@ public class SplashPresenter {
      */
     public void attachView(ISplashView view) {
         this.view = view;
+    }
+
+    /**
+     *
+     * @return [boolean] Return <b>true</b> if the view is attached, <b>false</b> otherwise.
+     */
+    private boolean isViewAttached() {
+        return view != null;
+    }
+
+    /**
+     * Show the next splash fragment.
+     */
+    public void showNextFragment() {
+        if (isViewAttached()) {
+            view.showNextFragment();
+        }
     }
 }

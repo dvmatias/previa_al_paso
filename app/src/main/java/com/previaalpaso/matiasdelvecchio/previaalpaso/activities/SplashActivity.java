@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
     /**
      * Presenter.
      */
-    private SplashPresenter presenter;
+    public static SplashPresenter presenter;
 
     /**
      * Main view pager to show splash screens.
@@ -110,7 +110,10 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
 
     @Override
     public void showNextFragment() {
-        // TODO
+        int nextPosition = pager.getCurrentItem() + 1;
+        if (nextPosition < adapterPager.getCount()) {
+            pager.setCurrentItem(nextPosition);
+        }
     }
 
     @Override

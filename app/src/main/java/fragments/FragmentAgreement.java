@@ -1,5 +1,6 @@
 package fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
+import com.previaalpaso.matiasdelvecchio.previaalpaso.activities.SplashActivity;
 
 import adapters.AdapterSplashPager;
 
@@ -93,7 +95,10 @@ public class FragmentAgreement extends Fragment {
         buttonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO show FragmentLogIn
+                Activity activity = getActivity();
+                if (activity != null && activity instanceof SplashActivity) {
+                    SplashActivity.presenter.showNextFragment();
+                }
             }
         });
     }
@@ -110,7 +115,7 @@ public class FragmentAgreement extends Fragment {
     }
 
     /**
-     *
+     * Set Action Bar.
      */
     private void setupActionBar(View rootView) {
         Toolbar toolbar = rootView.findViewById(R.id.toolbar);
