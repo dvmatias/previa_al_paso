@@ -5,7 +5,7 @@
     android:padding="90dp">
 
     <solid
-        android:color="@color/pap_button_pressed"/>
+        android:color="@color/color_button_pressed"/>
 
     <corners
         android:bottomRightRadius="2dp"

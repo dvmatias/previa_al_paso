@@ -8,6 +8,14 @@
     android:background="@color/pap_transparent" >
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:src="@drawable/background_fragment_agreement"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="80dp"
@@ -23,7 +31,7 @@
         android:layout_gravity="center"
         android:gravity="center_vertical">
 
-        <utils.customviews.SplashTitleExplanation
+        <utils.SplashTitleExplanation
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             splas_title_explanation:titleText="@string/agreement_title"

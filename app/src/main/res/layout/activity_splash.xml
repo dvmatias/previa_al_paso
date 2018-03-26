@@ -7,30 +7,6 @@
     android:background="@color/pap_gray_dark"
     tools:context="com.previaalpaso.matiasdelvecchio.previaalpaso.activities.SplashActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/pap_gray_dark"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:contentInsetLeft="0dp"
-        android:contentInsetStart="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:contentInsetRight="0dp"
-        android:contentInsetEnd="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetEnd="0dp" >
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="@dimen/material_text_subhead1"
-                android:textColor="@color/pap_white" />
-    </android.support.v7.widget.Toolbar>
-
     <!-- Screens Pager -->
     <FrameLayout
         android:id="@+id/fullscreen_content"
@@ -45,4 +21,29 @@
             android:keepScreenOn="true" />
     </FrameLayout>
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_toolbar_background"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetEnd="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp" >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/material_text_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textStyle="bold"/>
+    </android.support.v7.widget.Toolbar>
 </FrameLayout>

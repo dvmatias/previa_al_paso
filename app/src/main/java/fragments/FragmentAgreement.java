@@ -70,7 +70,7 @@ public class FragmentAgreement extends Fragment {
     }
 
     /**
-     * TODO (desc)
+     * Setuo check box agreement.
      */
     private void setupCheckbox() {
         checkBoxAgreement.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -82,18 +82,25 @@ public class FragmentAgreement extends Fragment {
     }
 
     /**
-     * TODO (desc)
+     * Setup button to display next fragment.
      */
     private void setupButton() {
         buttonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO show FragmentLogIn
             }
         });
     }
 
+    /**
+     * Set button status (enabled/disabled) according to the check box status.
+     *
+     * @param isButtonEnabled [boolean] Button status according, <b>true</b> if checkbox is checked
+     *                        <b>false</b> if not.
+     */
     private void setButtonEnabled(boolean isButtonEnabled) {
         buttonAccept.setEnabled(isButtonEnabled);
+        buttonAccept.setClickable(isButtonEnabled);
     }
 }
