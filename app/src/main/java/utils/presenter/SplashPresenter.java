@@ -1,5 +1,7 @@
 package utils.presenter;
 
+import android.content.SharedPreferences;
+
 import utils.view.ISplashView;
 
 /**
@@ -35,12 +37,4 @@ public class SplashPresenter {
         return view != null;
     }
 
-    /**
-     * Show the next splash fragment.
-     */
-    public void showNextFragment() {
-        if (isViewAttached()) {
-            view.showNextFragment();
-        }
-    }
 }

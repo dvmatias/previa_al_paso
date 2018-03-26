@@ -5,9 +5,14 @@ package utils.view;
  */
 
 public interface ISplashView {
+    String SP_NAME_AGREEMENT = "sp_name_agreement";
+    String SP_KEY_AGREEMENT = "sp_key_agreement";
+    boolean SP_DEF_AGREEMENT = false;
+
     void showPreviousFragment();
     void showNextFragment();
-    void saveAgreement();
+    void saveAgreement(boolean isAgree);
+    boolean getAgreement();
     void saveCreditCard();
     void saveFacebookInfo();
     void saveAccountInfo();

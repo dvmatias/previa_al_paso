@@ -1,5 +1,7 @@
 package com.previaalpaso.matiasdelvecchio.previaalpaso.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -117,8 +119,17 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
     }
 
     @Override
-    public void saveAgreement() {
-        // TODO
+    public void saveAgreement(boolean isAgree) {
+        SharedPreferences prefs = this.getSharedPreferences(
+                ISplashView.SP_NAME_AGREEMENT, Context.MODE_PRIVATE);
+        prefs.edit().putBoolean(ISplashView.SP_KEY_AGREEMENT, isAgree).apply();
+    }
+
+    @Override
+    public boolean getAgreement() {
+        SharedPreferences prefs = this.getSharedPreferences(
+                ISplashView.SP_NAME_AGREEMENT, Context.MODE_PRIVATE);
+        return prefs.getBoolean(ISplashView.SP_KEY_AGREEMENT, ISplashView.SP_DEF_AGREEMENT);
     }
 
     @Override

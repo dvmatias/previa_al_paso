@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,8 +18,6 @@ import android.widget.TextView;
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 import com.previaalpaso.matiasdelvecchio.previaalpaso.activities.SplashActivity;
 
-import adapters.AdapterSplashPager;
-
 /**
  * Created by cesar.delvecchio on 21/03/2018
  */
@@ -29,7 +26,13 @@ public class FragmentAgreement extends Fragment {
     /**
      * TAG.
      */
+    @SuppressWarnings("unused")
     private static final String TAG = FragmentAgreement.class.getSimpleName();
+
+    /**
+     * Activity.
+     */
+    private Activity activity;
 
     /**
      * Check box.
@@ -40,6 +43,11 @@ public class FragmentAgreement extends Fragment {
      * Button.
      */
     private Button buttonAccept;
+
+    /**
+     * User choice agreement.
+     */
+    private boolean isAgree = false;
 
     /**
      * New instance for {@link FragmentAgreement}
@@ -66,9 +74,11 @@ public class FragmentAgreement extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_agreement, container, false);
 
+        activity = getActivity();
         checkBoxAgreement = rootView.findViewById(R.id.checkbox_agreement);
         buttonAccept = rootView.findViewById(R.id.button_accept);
 
+        setIsAgree();
         setupCheckbox();
         setupButton();
         setupActionBar(rootView);
@@ -76,14 +86,35 @@ public class FragmentAgreement extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // If the fragment is destroyed, the agreement must set to the value selected by user.
+        ((SplashActivity) activity).saveAgreement(isAgree);
+    }
+
     /**
-     * Setuo check box agreement.
+     * Get agreement from a previous session.
+     */
+    private void setIsAgree() {
+        if (activity != null && activity instanceof SplashActivity) {
+            isAgree = ((SplashActivity) activity).getAgreement();
+        }
+    }
+
+    /**
+     * Setup check box.
      */
     private void setupCheckbox() {
+        // Set checked according previous agreement saved if any.
+        checkBoxAgreement.setChecked(isAgree);
+
+        // On checked change listener.
         checkBoxAgreement.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setButtonEnabled(isChecked);
+                isAgree = isChecked;
             }
         });
     }
@@ -92,12 +123,16 @@ public class FragmentAgreement extends Fragment {
      * Setup button to display next fragment.
      */
     private void setupButton() {
+        // Set button status.
+        setButtonEnabled(isAgree);
+
+        // Click listener.
         buttonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity activity = getActivity();
                 if (activity != null && activity instanceof SplashActivity) {
-                    SplashActivity.presenter.showNextFragment();
+                    ((SplashActivity) activity).saveAgreement(isAgree);
+                    ((SplashActivity) activity).showNextFragment();
                 }
             }
         });
