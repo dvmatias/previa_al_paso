@@ -15,6 +15,10 @@
     <color name="color_button_pressed">#CCFBB619</color>
     <color name="color_button_normal">#FFFBB619</color>
 
+    <!-- Pager Indicator -->
+    <color name="color_page_indicator_background">#4C4C4C</color>
+    <color name="color_page_indicator_stroke">#FFFBB619</color>
+
     <color name="pap_transparent">#00000000</color>
     <color name="pap_white">#FFFFFFFF</color>
     <color name="pap_splash_title">#FFFFFFFF</color>

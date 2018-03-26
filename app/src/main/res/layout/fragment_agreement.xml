@@ -31,19 +31,19 @@
         android:layout_gravity="center"
         android:gravity="center_vertical">
 
-        <utils.SplashTitleExplanation
+        <utils.customviews.SplashTitleExplanation
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             splas_title_explanation:titleText="@string/agreement_title"
             splas_title_explanation:explanationText="@string/agreement_explanation" />
 
-            <android.support.v7.widget.AppCompatCheckBox
-                android:id="@+id/checkbox_agreement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/agreement_agreement"
-                android:theme="@style/CustomCheckBoxTheme" />
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/agreement_agreement"
+            android:theme="@style/CustomCheckBoxTheme" />
     </LinearLayout>
 
     <Button
@@ -54,4 +54,30 @@
         android:layout_marginBottom="100dp"
         android:text="@string/agreement_pos_button"
         style="@style/CustomButtonTheme"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_toolbar_background"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="4dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetEnd="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp" >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/material_text_title"
+            android:textColor="@color/color_toolbar_title"
+            android:textStyle="bold"/>
+    </android.support.v7.widget.Toolbar>
 </FrameLayout>

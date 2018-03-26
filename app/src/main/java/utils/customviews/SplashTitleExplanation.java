@@ -1,4 +1,4 @@
-package utils;
+package utils.customviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;

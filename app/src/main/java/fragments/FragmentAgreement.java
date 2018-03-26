@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 
@@ -65,6 +69,7 @@ public class FragmentAgreement extends Fragment {
 
         setupCheckbox();
         setupButton();
+        setupActionBar(rootView);
 
         return rootView;
     }
@@ -102,5 +107,20 @@ public class FragmentAgreement extends Fragment {
     private void setButtonEnabled(boolean isButtonEnabled) {
         buttonAccept.setEnabled(isButtonEnabled);
         buttonAccept.setClickable(isButtonEnabled);
+    }
+
+    /**
+     *
+     */
+    private void setupActionBar(View rootView) {
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
+        TextView toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setHomeButtonEnabled(false);
+        }
+        toolbarTitle.setText(getResources().getString(R.string.agreement_actionbar_title));
     }
 }
