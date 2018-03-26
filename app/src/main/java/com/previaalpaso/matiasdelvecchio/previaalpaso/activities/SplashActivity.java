@@ -11,17 +11,24 @@ import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 
 import adapters.AdapterSplashPager;
 import utils.customviews.PagerIndicator;
+import utils.presenter.SplashPresenter;
+import utils.view.ISplashView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity implements ISplashView{
     /**
      * TAG.
      */
     @SuppressWarnings("unused")
     private static final String TAG = SplashActivity.class.getSimpleName();
+
+    /**
+     * Presenter.
+     */
+    private SplashPresenter presenter;
 
     /**
      * Main view pager to show splash screens.
@@ -47,6 +54,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        presenter = new SplashPresenter();
+        presenter.attachView(this);
 
         pager = findViewById(R.id.pager);
         pagerIndicator = findViewById(R.id.page_indicator);
@@ -90,5 +100,40 @@ public class SplashActivity extends AppCompatActivity {
     private void setupPageIndicator() {
         pagerIndicator.setIndicatorCount(pager.getAdapter().getCount());
         pagerIndicator.setIndicatorsActive(0, false);
+    }
+
+    @Override
+    public void showPreviousFragment() {
+        // TODO
+    }
+
+    @Override
+    public void showNextFragment() {
+        // TODO
+    }
+
+    @Override
+    public void saveAgreement() {
+        // TODO
+    }
+
+    @Override
+    public void saveCreditCard() {
+        // TODO
+    }
+
+    @Override
+    public void saveFacebookInfo() {
+        // TODO
+    }
+
+    @Override
+    public void saveAccountInfo() {
+        // TODO
+    }
+
+    @Override
+    public void launchForgetPassword() {
+        // TODO
     }
 }
