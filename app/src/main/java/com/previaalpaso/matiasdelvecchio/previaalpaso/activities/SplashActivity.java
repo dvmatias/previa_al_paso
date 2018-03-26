@@ -1,19 +1,10 @@
 package com.previaalpaso.matiasdelvecchio.previaalpaso.activities;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Interpolator;
-import android.widget.Scroller;
-import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
-
-import java.lang.reflect.Field;
 
 import adapters.AdapterSplashPager;
 import utils.customviews.PagerIndicator;
