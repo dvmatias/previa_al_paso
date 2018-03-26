@@ -22,4 +22,22 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <!-- Check box -->
+    <style name="CustomCheckBoxTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorControlNormal">@color/pap_check_box_normal</item>
+        <item name="colorControlActivated">@color/pap_yellow</item>
+        <item name="colorControlHighlight">#ff9800</item>
+    </style>
+
+    <!-- Button -->
+    <style name="CustomButtonTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColor">@color/pap_white</item>
+        <item name="android:textSize">@dimen/material_text_subhead1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:background">@drawable/selector_button_splash</item>
+        <item name="android:minHeight">38dp</item>
+        <item name="android:enabled">false</item>
+    </style>
 </resources>

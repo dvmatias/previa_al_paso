@@ -51,6 +51,7 @@ public class SplashActivity extends AppCompatActivity {
         TextView toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
         toolbarTitle.setText(getResources().getString(R.string.agreement_actionbar_title));
     }
 

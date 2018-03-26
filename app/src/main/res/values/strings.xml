@@ -10,4 +10,5 @@
     <string name="agreement_explanation">Debes confirmar que\nsos mayor de edad para poder\nutilizar esta aplicación.</string>
     <string name="agreement_agreement">Si, soy mayor de 18 años</string>
     <string name="agreement_pos_button">ACEPTAR</string>
+    <string name="null_string" />
 </resources>

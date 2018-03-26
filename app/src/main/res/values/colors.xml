@@ -8,6 +8,7 @@
 
     <color name="pap_transparent">#00000000</color>
     <color name="pap_white">#FFFFFFFF</color>
+    <color name="pap_button_disable">#99FFFFFF</color>
     <color name="pap_action_bar_title">#99FFFFFF</color>
     <color name="pap_splash_title">#FFFFFFFF</color>
     <color name="pap_splash_explanation">#ccffffff</color>
@@ -16,4 +17,5 @@
     <color name="pap_purple">#FF7F3F98</color>
     <color name="pap_alert">#FFFF3333</color>
     <color name="pap_gray_dark">#FF121212</color>
+    <color name="pap_check_box_normal">#4C4C4C</color>
 </resources>
