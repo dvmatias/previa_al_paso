@@ -29,23 +29,13 @@
             splas_title_explanation:titleText="@string/agreement_title"
             splas_title_explanation:explanationText="@string/agreement_explanation" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
-
             <android.support.v7.widget.AppCompatCheckBox
                 android:id="@+id/checkbox_agreement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/agreement_agreement"
-                android:textSize="@dimen/material_text_subhead2"
-                android:textColor="@color/pap_white"
                 android:theme="@style/CustomCheckBoxTheme" />
-        </LinearLayout>
     </LinearLayout>
 
     <Button

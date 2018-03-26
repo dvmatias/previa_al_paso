@@ -27,6 +27,8 @@
         <item name="colorControlNormal">@color/pap_check_box_normal</item>
         <item name="colorControlActivated">@color/pap_yellow</item>
         <item name="colorControlHighlight">#ff9800</item>
+        <item name="android:textSize">@dimen/material_text_subhead2</item>
+        <item name="android:textColor">@color/pap_white</item>
     </style>
 
     <!-- Button -->
