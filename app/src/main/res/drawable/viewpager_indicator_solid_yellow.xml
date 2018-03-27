@@ -3,7 +3,7 @@
     android:shape="oval">
 
     <solid
-        android:color="@color/color_page_indicator_stroke" />
+        android:color="@color/color_page_indicator_solid" />
 
     <size
         android:height="@dimen/margin_widget"

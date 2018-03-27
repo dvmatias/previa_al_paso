@@ -57,13 +57,48 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
 
-    <!-- Edit Text Login -->
-    <style name="EditTextTheme" parent="Base.Widget.AppCompat.EditText">
+    <!-- Edit Text Email Login -->
+    <style name="EditTextEmailTheme" parent="Base.Widget.AppCompat.EditText">
         <item name="android:textAlignment">textStart</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:drawableStart">@drawable/ic_login_edittext_email</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/login_email_hint</item>
         <item name="android:textColorHint">@color/color_edittext_hint</item>
         <item name="android:textColor">@color/color_edittext_text</item>
+        <item name="android:textCursorDrawable">@color/color_edittext_cursor</item>
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:background">@drawable/shape_edittext</item>
         <item name="android:minHeight">38dp</item>
+    </style>
+
+    <!-- Edit Text Password Login -->
+    <style name="EditTextPasswordTheme" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:drawableStart">@drawable/ic_login_edittext_email</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/login_password_hint</item>
+        <item name="android:textColorHint">@color/color_edittext_hint</item>
+        <item name="android:textColor">@color/color_edittext_text</item>
+        <item name="android:textCursorDrawable">@color/color_edittext_cursor</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:background">@drawable/shape_edittext</item>
+        <item name="android:minHeight">38dp</item>
+    </style>
+
+    <!-- Log In Button -->
+    <style name="LoginButtonTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColor">@color/pap_white</item>
+        <item name="android:textSize">@dimen/material_text_subhead1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:background">@drawable/selector_button_login_splash</item>
+        <item name="android:minHeight">38dp</item>
+        <item name="android:enabled">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
 </resources>

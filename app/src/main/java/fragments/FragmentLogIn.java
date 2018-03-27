@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
@@ -58,13 +59,23 @@ public class FragmentLogIn extends Fragment {
      */
     private void setupActionBar(View rootView) {
         Toolbar toolbar = rootView.findViewById(R.id.toolbar);
+
         TextView toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
+        ImageView toolbarBackButton = toolbar.findViewById(R.id.toolbar_button_back);
+
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setHomeButtonEnabled(false);
         }
+
         toolbarTitle.setText(getResources().getString(R.string.login_actionbar_title));
+        toolbarBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Back to previous fragment
+            }
+        });
     }
 }

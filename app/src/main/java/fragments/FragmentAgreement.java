@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
@@ -154,13 +155,19 @@ public class FragmentAgreement extends Fragment {
      */
     private void setupActionBar(View rootView) {
         Toolbar toolbar = rootView.findViewById(R.id.toolbar);
+
         TextView toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
+        ImageView toolbarBackButton = toolbar.findViewById(R.id.toolbar_button_back);
+
+
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(false);
             actionBar.setHomeButtonEnabled(false);
         }
+
         toolbarTitle.setText(getResources().getString(R.string.agreement_actionbar_title));
+        toolbarBackButton.setVisibility(View.GONE);
     }
 }
