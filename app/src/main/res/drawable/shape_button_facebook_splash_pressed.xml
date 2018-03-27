@@ -5,7 +5,7 @@
     android:padding="90dp">
 
     <solid
-        android:color="@color/color_button_disable"/>
+        android:color="@color/color_button_facebook_pressed"/>
 
     <corners
         android:bottomRightRadius="2dp"

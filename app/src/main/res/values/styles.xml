@@ -23,7 +23,7 @@
     </style>
 
     <!-- Check box -->
-    <style name="CustomCheckBoxTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="CheckBoxTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorControlNormal">@color/pap_check_box_normal</item>
         <item name="colorControlActivated">@color/pap_yellow</item>
         <item name="colorControlHighlight">#ff9800</item>
@@ -31,16 +31,39 @@
         <item name="android:textColor">@color/pap_white</item>
     </style>
 
-    <!-- Button -->
-    <style name="CustomButtonTheme" parent="Theme.AppCompat.NoActionBar">
+    <!-- Positive Button -->
+    <style name="PositiveButtonTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:textColor">@color/pap_white</item>
         <item name="android:textSize">@dimen/material_text_subhead1</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:paddingStart">36dp</item>
         <item name="android:paddingEnd">36dp</item>
-        <item name="android:background">@drawable/selector_button_splash</item>
+        <item name="android:background">@drawable/selector_button_positive_splash</item>
         <item name="android:minHeight">38dp</item>
         <item name="android:enabled">false</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Facebook Button -->
+    <style name="FacebookButtonTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColor">@color/pap_white</item>
+        <item name="android:textSize">@dimen/material_text_subhead1</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:background">@drawable/selector_button_facebook_splash</item>
+        <item name="android:minHeight">38dp</item>
+        <item name="android:enabled">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Edit Text Login -->
+    <style name="EditTextTheme" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColorHint">@color/color_edittext_hint</item>
+        <item name="android:textColor">@color/color_edittext_text</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:background">@drawable/shape_edittext</item>
+        <item name="android:minHeight">38dp</item>
     </style>
 </resources>

@@ -11,9 +11,19 @@
     <color name="color_toolbar_background">#FF121212</color>
 
     <!-- Splash Positive Button -->
-    <color name="color_button_disable">#99FFFFFF</color>
-    <color name="color_button_pressed">#CCFBB619</color>
-    <color name="color_button_normal">#FFFBB619</color>
+    <color name="color_button_positive_disable">#99FFFFFF</color>
+    <color name="color_button_positive_pressed">#CCFBB619</color>
+    <color name="color_button_positive_normal">#FFFBB619</color>
+
+    <!-- Splash Facebook Button -->
+    <color name="color_button_facebook_disable">#99FFFFFF</color>
+    <color name="color_button_facebook_pressed">#CC3A5897</color>
+    <color name="color_button_facebook_normal">#FF3A5897</color>
+
+    <!-- Splash Edit Text -->
+    <color name="color_edittext_hint">#66FFFFFF</color>
+    <color name="color_edittext_text">#FFFFFFFF</color>
+    <color name="color_edittext_background">#19FFFFFF</color>
 
     <!-- Pager Indicator -->
     <color name="color_page_indicator_background">#4C4C4C</color>
@@ -22,7 +32,7 @@
     <color name="pap_transparent">#00000000</color>
     <color name="pap_white">#FFFFFFFF</color>
     <color name="pap_splash_title">#FFFFFFFF</color>
-    <color name="pap_splash_explanation">#ccffffff</color>
+    <color name="color_splash_text_explanation">#ccffffff</color>
     <color name="pap_red">#FFBE1E2D</color>
     <color name="pap_yellow">#FFFBB619</color>
     <color name="pap_purple">#FF7F3F98</color>

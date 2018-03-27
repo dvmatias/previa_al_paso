@@ -3,14 +3,64 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff0000">
+    android:background="@color/pap_transparent" >
 
-    <TextView
+    <!-- Background image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:src="@drawable/background_fragment_login"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/null_string"/>
+
+    <!-- App logo -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/ic_splash"
+        android:layout_gravity="top|center_horizontal"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/null_string"/>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="48sp"
-        android:textColor="@color/pap_white"
-        android:text="LOG IN"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- Facebook Button -->
+        <Button
+            android:id="@+id/button_login_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_facebook_button"
+            style="@style/FacebookButtonTheme"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:textColor="@color/color_splash_text_explanation"
+            android:textSize="@dimen/material_text_subhead2"
+            android:textStyle="normal"
+            android:text="@string/login_explanation"/>
+
+        <EditText
+            android:id="@+id/edittext_email"
+            android:labelFor="@+id/edittext_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_email_hint"
+            style="@style/EditTextTheme"/>
+
+    </LinearLayout>
+
+    <!-- Toolbar -->
+    <include
+        layout="@layout/splash_toolbar"/>
 
 </FrameLayout>

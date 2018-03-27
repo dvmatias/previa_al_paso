@@ -3,14 +3,18 @@ package fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 
 /**
- * Created by cesar.delvecchio on 21/03/2018.
+ * Created by cesar.delvecchio on 21/03/2018
  */
 
 public class FragmentLogIn extends Fragment {
@@ -44,8 +48,23 @@ public class FragmentLogIn extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_login, container, false);
 
-        // TODO declare and set views inside fragment.
+        setupActionBar(rootView);
 
         return rootView;
+    }
+
+    /**
+     * Set Action Bar.
+     */
+    private void setupActionBar(View rootView) {
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
+        TextView toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setHomeButtonEnabled(false);
+        }
+        toolbarTitle.setText(getResources().getString(R.string.login_actionbar_title));
     }
 }

@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Previa Al Paso</string>
-
-
+    \
     <string name="title_splash_activity">Splash Activity</string>
 
     <!-- Fragment Agreement -->
@@ -9,6 +8,14 @@
     <string name="agreement_title">Soy mayor de 18 años</string>
     <string name="agreement_explanation">Debes confirmar que\nsos mayor de edad para poder\nutilizar esta aplicación.</string>
     <string name="agreement_agreement">Si, soy mayor de 18 años</string>
-    <string name="agreement_pos_button">ACEPTAR</string>
+    <string name="agreement_positive_button">ACEPTAR</string>
+
+    <!-- Fragment Log In -->
+    <string name="login_actionbar_title">Iniciar Sesión</string>
+    <string name="login_facebook_button">INICIAR SESION CON FACEBOOK</string>
+    <string name="login_explanation">ó</string>
+    <string name="login_email_hint">correo electrónico</string>
+
+
     <string name="null_string" />
 </resources>

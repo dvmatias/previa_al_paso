@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:splas_title_explanation="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pap_transparent" >
 
+    <!-- Background image -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:src="@drawable/background_fragment_agreement"
+        android:scaleType="fitStart"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"/>
+        android:contentDescription="@string/null_string"/>
 
+    <!-- App logo -->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -24,6 +26,7 @@
         android:scaleType="centerInside"
         android:contentDescription="@string/null_string"/>
 
+    <!-- Body info -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,41 +46,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/agreement_agreement"
-            android:theme="@style/CustomCheckBoxTheme" />
+            android:theme="@style/CheckBoxTheme" />
     </LinearLayout>
 
+    <!-- Accept Button -->
     <Button
         android:id="@+id/button_accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="100dp"
-        android:text="@string/agreement_pos_button"
-        style="@style/CustomButtonTheme"/>
+        android:text="@string/agreement_positive_button"
+        style="@style/PositiveButtonTheme"/>
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_toolbar_background"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:elevation="4dp"
-        android:contentInsetLeft="0dp"
-        android:contentInsetStart="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:contentInsetRight="0dp"
-        android:contentInsetEnd="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetEnd="0dp" >
+    <!-- Toolbar -->
+    <include
+        layout="@layout/splash_toolbar" />
 
-        <TextView
-            android:id="@+id/toolbar_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/material_text_title"
-            android:textColor="@color/color_toolbar_title"
-            android:textStyle="bold"/>
-    </android.support.v7.widget.Toolbar>
 </FrameLayout>
