@@ -13,6 +13,7 @@
     <!-- Fragment Log In -->
     <string name="login_actionbar_title">Iniciar Sesión</string>
     <string name="login_facebook_button">INICIAR SESION CON FACEBOOK</string>
+    <string name="login_google_button">INICIAR SESION CON GOOGLE</string>
     <string name="login_explanation">ó</string>
     <string name="login_email_hint">correo electrónico</string>
     <string name="login_password_hint">contraseña</string>

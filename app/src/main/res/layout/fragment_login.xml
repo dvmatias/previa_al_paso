@@ -50,48 +50,24 @@
             android:textStyle="normal"
             android:text="@string/login_explanation"/>
 
-        <!-- Email field -->
-        <EditText
-            android:id="@+id/edittext_email"
-            android:labelFor="@+id/edittext_email"
+        <!-- Sign In Google Button -->
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_google_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/EditTextEmailTheme"/>
-
-        <!-- Password -->
-        <EditText
-            android:id="@+id/edittext_password"
-            android:labelFor="@+id/edittext_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            style="@style/EditTextPasswordTheme"/>
-
-        <!-- Forgot password text -->
-        <TextView
-            android:id="@+id/textview_forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/color_splash_text_explanation"
-            android:textSize="@dimen/material_text_subhead2"
-            android:textStyle="normal"
-            android:text="@string/login_forgot_password"
-            android:clickable="true"
-            android:focusable="true"/>
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/login_login_button"  />
 
     </LinearLayout>
 
-
-    <!-- Log In Button -->
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:text="@string/login_login_button"
-        style="@style/LoginButtonTheme"/>
+    <!--<Button-->
+        <!--android:id="@+id/button_login_google"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="100dp"-->
+        <!--android:layout_gravity="center_horizontal|bottom"-->
+        <!--android:text="@string/login_login_button"-->
+        <!--style="@style/LoginButtonTheme"/>-->
 
     <!-- Toolbar -->
     <include

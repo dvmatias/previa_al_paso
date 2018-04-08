@@ -107,7 +107,10 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
 
     @Override
     public void showPreviousFragment() {
-        // TODO
+        int previousPosition = pager.getCurrentItem() - 1;
+        if (previousPosition >= 0) {
+            pager.setCurrentItem(previousPosition);
+        }
     }
 
     @Override
