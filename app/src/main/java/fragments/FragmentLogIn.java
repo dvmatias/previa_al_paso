@@ -323,5 +323,6 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
         isUserSigned = (account != null);
         setButtonNextEnabled();
         setCheckboxEnable();
+        checkBoxRememberAccount.setChecked(isUserSigned);
     }
 }

@@ -8,7 +8,7 @@
 
     <!-- Toolbar -->
     <color name="color_toolbar_title">#CCFFFFFF</color>
-    <color name="color_toolbar_background">#FF121212</color>
+    <color name="color_toolbar_background">#FF313131</color>
 
     <!-- Splash Positive Button -->
     <color name="color_button_positive_disable">#99FFFFFF</color>
