@@ -17,8 +17,8 @@
     <string name="login_explanation">ó</string>
     <string name="login_email_hint">correo electrónico</string>
     <string name="login_password_hint">contraseña</string>
-    <string name="login_login_button">INICIAR SESION</string>
-    <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login_next_button">SIGUIENTE</string>
+    <string name="login_remember_account">Recordarme</string>
 
     <string name="null_string" />
 </resources>

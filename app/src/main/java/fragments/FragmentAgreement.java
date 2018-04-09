@@ -67,6 +67,8 @@ public class FragmentAgreement extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        activity = getActivity();
     }
 
     @Nullable
@@ -75,7 +77,6 @@ public class FragmentAgreement extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_agreement, container, false);
 
-        activity = getActivity();
         checkBoxAgreement = rootView.findViewById(R.id.checkbox_agreement);
         buttonAccept = rootView.findViewById(R.id.button_accept);
 

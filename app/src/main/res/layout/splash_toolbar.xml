@@ -40,9 +40,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="@dimen/material_text_title"
+                android:textSize="@dimen/material_text_subhead1"
                 android:textColor="@color/color_toolbar_title"
-                android:textStyle="bold"/>
+                android:textStyle="normal"/>
         </FrameLayout>
     </android.support.v7.widget.Toolbar>
 </RelativeLayout>

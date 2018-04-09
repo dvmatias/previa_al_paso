@@ -136,6 +136,22 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
     }
 
     @Override
+    public void saveRememberAccount(boolean rememberAccount) {
+        SharedPreferences prefs = this.getSharedPreferences(
+                ISplashView.SP_NAME_REMEMBER_ACCOUNT, Context.MODE_PRIVATE);
+        prefs.edit().putBoolean(ISplashView.SP_KEY_REMEMBER_ACCOUNT, rememberAccount).apply();
+    }
+
+    @Override
+    public boolean getRememberAccount() {
+        SharedPreferences prefs = this.getSharedPreferences(
+                ISplashView.SP_NAME_REMEMBER_ACCOUNT, Context.MODE_PRIVATE);
+        return prefs.getBoolean(ISplashView.SP_KEY_REMEMBER_ACCOUNT,
+                ISplashView.SP_DEF_REMEMBER_ACCOUNT);
+
+    }
+
+    @Override
     public void saveCreditCard() {
         // TODO
     }
@@ -147,11 +163,6 @@ public class SplashActivity extends AppCompatActivity implements ISplashView{
 
     @Override
     public void saveAccountInfo() {
-        // TODO
-    }
-
-    @Override
-    public void launchForgetPassword() {
         // TODO
     }
 }

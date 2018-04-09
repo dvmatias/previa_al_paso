@@ -8,13 +8,18 @@ public interface ISplashView {
     String SP_NAME_AGREEMENT = "sp_name_agreement";
     String SP_KEY_AGREEMENT = "sp_key_agreement";
     boolean SP_DEF_AGREEMENT = false;
+    String SP_NAME_REMEMBER_ACCOUNT = "sp_name_remember_account";
+    String SP_KEY_REMEMBER_ACCOUNT = "sp_key_remember_account";
+    boolean SP_DEF_REMEMBER_ACCOUNT = false;
 
     void showPreviousFragment();
     void showNextFragment();
     void saveAgreement(boolean isAgree);
     boolean getAgreement();
+    void saveRememberAccount(boolean rememberAccount);
+    boolean getRememberAccount();
     void saveCreditCard();
     void saveFacebookInfo();
     void saveAccountInfo();
-    void launchForgetPassword();
+
 }

@@ -1,8 +1,11 @@
 package fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -14,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,9 +28,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.previaalpaso.matiasdelvecchio.previaalpaso.R;
 import com.previaalpaso.matiasdelvecchio.previaalpaso.activities.SplashActivity;
+
+import utils.view.ISplashView;
 
 /**
  * Created by cesar.delvecchio on 21/03/2018
@@ -58,6 +66,28 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
      */
     private GoogleSignInClient mGoogleSignInClient;
 
+    private GoogleSignInAccount account;
+
+    /**
+     * Checkbox to remember account.
+     */
+    private CheckBox checkBoxRememberAccount;
+
+    /**
+     * Next button.
+     */
+    private Button buttonNext;
+
+    /**
+     * User signing status.
+     */
+    private boolean isUserSigned = false;
+
+    /**
+     * Remember account.
+     */
+    private boolean rememberAccount;
+
     /**
      * New instance for {@link FragmentAgreement}
      *
@@ -76,14 +106,21 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        activity = getActivity();
+
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestProfile()
                 .requestEmail()
                 .build();
 
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+
+        if (activity != null && activity instanceof SplashActivity) {
+            rememberAccount = ((SplashActivity) activity).getRememberAccount();
+        }
     }
 
     @Override
@@ -92,8 +129,20 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
 
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
-        // TODO updateUI(account);
+        account = GoogleSignIn.getLastSignedInAccount(getActivity());
+
+        // If the choice of remember account is false, sign out.
+        if (!rememberAccount) {
+            mGoogleSignInClient.signOut()
+                    .addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            updateUI(null);
+                        }
+                    });
+        }
+
+        updateUI(account);
     }
 
     @Nullable
@@ -102,13 +151,16 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_login, container, false);
 
-        activity = getActivity();
         buttonLoginFacebook = rootView.findViewById(R.id.button_login_facebook);
         buttonSignInGoogle = rootView.findViewById(R.id.sign_in_google_button);
+        buttonNext = rootView.findViewById(R.id.button_login_next);
+        checkBoxRememberAccount = rootView.findViewById(R.id.checkbox_remember_account);
 
         setupActionBar(rootView);
         setupLoginFacebookButton();
         setupSignInGoogleButton();
+        setupCheckbox();
+        setupButtonNext();
 
         return rootView;
     }
@@ -126,29 +178,24 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
         }
     }
 
+    /**
+     *
+     * @param completedTask
+     */
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
-            // Signed in successfully, show authenticated UI.
-            if (account!=null) {
-                Log.d(TAG, "*** mabel " + account.getEmail());
-                Log.d(TAG, "*** mabel " + account.getDisplayName());
-                Log.d(TAG, "*** mabel " + account.getGivenName());
-            } else {
-                Log.d(TAG, "*** mabel ACCOUNT NULL");
-            }
-            //updateUI(account);
+            account = completedTask.getResult(ApiException.class);
+            updateUI(account);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w(TAG, "*** mabel signInResult:failed code=" + e.getStatusCode());
-            //updateUI(null);
+            updateUI(null);
         }
     }
 
     /**
-     * TODO desc
+     * Sign in user with Facebook account.
      */
     private void setupLoginFacebookButton() {
        buttonLoginFacebook.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +207,7 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
     }
 
     /**
-     * TODO desc
+     * Setup Sign In Google Button.
      */
     private void setupSignInGoogleButton() {
         buttonSignInGoogle.setOnClickListener(this);
@@ -168,6 +215,7 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
         for (int i = 0; i < buttonSignInGoogle.getChildCount(); i++) {
             View v = buttonSignInGoogle.getChildAt(i);
 
+            // Setup text.
             if (v instanceof TextView) {
                 TextView tv = (TextView) v;
                 tv.setText(R.string.login_google_button);
@@ -175,6 +223,57 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
                 return;
             }
         }
+    }
+
+    /**
+     * Setup check box initial status.
+     */
+    private void setupCheckbox() {
+        setCheckboxEnable();
+
+        if (activity != null && activity instanceof SplashActivity) {
+            rememberAccount = ((SplashActivity) activity).getRememberAccount();
+        }
+
+        // Set checked according previous agreement saved if any.
+        checkBoxRememberAccount.setChecked(rememberAccount);
+
+        // On checked change listener.
+        checkBoxRememberAccount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                rememberAccount = isChecked;
+
+                if (activity != null && activity instanceof SplashActivity) {
+                    ((SplashActivity) activity).saveRememberAccount(rememberAccount);
+                }
+            }
+        });
+    }
+
+    /**
+     * TODO desc
+     */
+    private void setCheckboxEnable() {
+        checkBoxRememberAccount.setEnabled(isUserSigned);
+    }
+
+    /**
+     * TODO desc
+     */
+    private void setupButtonNext() {
+        // Button status.
+        setButtonNextEnabled();
+        // Click listener.
+        buttonNext.setOnClickListener(this);
+    }
+
+    /**
+     * TODO desc
+     */
+    private void setButtonNextEnabled() {
+        buttonNext.setEnabled(isUserSigned);
+        buttonNext.setClickable(isUserSigned);
     }
 
     /**
@@ -211,8 +310,18 @@ public class FragmentLogIn extends Fragment implements View.OnClickListener{
             case R.id.sign_in_google_button:
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, 123);
-
+                break;
+            case R.id.button_login_next:
+                if (activity != null && activity instanceof SplashActivity) {
+                    ((SplashActivity) activity).showNextFragment();
+                }
                 break;
         }
+    }
+
+    private void updateUI(GoogleSignInAccount account) {
+        isUserSigned = (account != null);
+        setButtonNextEnabled();
+        setCheckboxEnable();
     }
 }
